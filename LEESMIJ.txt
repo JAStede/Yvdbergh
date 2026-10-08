@@ -1,0 +1,11 @@
+DEMO LJ STUDIO — Y. VAN DEN BERGH KLIMAATTECHNIEK
+
+Open index.html. Voor de volledige website: houd alle HTML-bestanden, style.css, script.js en assets in dezelfde map.
+
+PUBLICATIE: Upload de volledige uitgepakte map naar Netlify Drop. Dit is een demo; publiceer niet op het echte bedrijfsdomein zonder toestemming.
+
+SEO: unieke title, description, H1, canonical, sitemap.xml en robots.txt per pagina. De canonical URL verwijst naar het bestaande domein en moet aangepast worden als de demo op een ander definitief domein live gaat.
+
+VOOR LIVEGANG: controleer echte contactgegevens, e-mailontvanger en formulierdienst, toestemming voor gebruik van logo, definitieve bedrijfsinhoud, rechten/echtheid foto’s, privacyverklaring, cookiegebruik en claims. Foto’s zijn AI-gegenereerde voorbeelden, geen echte projecten.
+
+CONTACTFORMULIER: opent e-mailconcept zonder ontvanger. Voor automatische verzending is een echte formulierdienst nodig.

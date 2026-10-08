@@ -1,0 +1,11 @@
+GITHUB PAGES TESTVERSIE - Y. VAN DEN BERGH KLIMAATTECHNIEK
+
+Upload alle losse bestanden en de assets-map naar de hoofdmap van de repository JAStede/Yvdbergh.
+Zet GitHub Pages aan: Settings > Pages > Deploy from a branch > main > /(root).
+
+FORMULIEREN: Contact en Offerte gebruiken FormSubmit (formsubmit.co) met ontvangstadres yvdberghklimaattechniek@ziggo.nl.
+BELANGRIJK: Bij de eerste echte verzending ontvangt Youri een activeringsmail van FormSubmit. Hij moet deze zelf bevestigen. Test daarna een tweede aanvraag en controleer ontvangst en spamfolder. Er is nog GEEN live verzending getest.
+
+LET OP: Dit is een testversie. De privacyverklaring moet juridisch/feitelijk worden goedgekeurd; bevestig het volledige adres, telefoonnummer, STEK-certificering, projecten en afbeeldingen voor livegang. De tijdelijke foto's zijn geen echte projecten.
+
+GitHub Pages is publiek: bezoekers kunnen de testsite zien. Publiceer geen vertrouwelijke gegevens.

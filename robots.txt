@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /bedankt.html
+Sitemap: https://www.yvdberghklimaattechniek.nl/sitemap.xml
