@@ -65,3 +65,20 @@ if(menu&&links){
  const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add('is-visible');observer.unobserve(entry.target)})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
  targets.forEach(el=>observer.observe(el));
 })();
+
+/* Interactief stappenplan: automatische wissel alleen zonder reduced motion. */
+(() => {
+ const root=document.querySelector('.climate-process');if(!root)return;
+ const tabs=[...root.querySelectorAll('[data-climate-step]')],art=root.querySelector('.climate-process-art-icon'),heading=root.querySelector('.climate-process-heading'),copy=root.querySelector('.climate-process-copy'),pause=root.querySelector('.climate-process-pause');
+ const steps=[{"title":"Uw aanvraag","description":"Vertel ons wat u zoekt en welke wensen u heeft."},{"title":"Persoonlijk advies","description":"We bespreken welke oplossing aansluit op uw situatie."},{"title":"Installatie","description":"Na afstemming voeren we de afgesproken werkzaamheden uit."},{"title":"Service en onderhoud","description":"Ook na installatie kunt u bij ons terecht voor onderhoud en vragen."}];
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let current=0,paused=reduced||document.hidden,timer=null;
+ const render=i=>{current=i;tabs.forEach((tab,n)=>{tab.classList.toggle('is-current',n===i);tab.setAttribute('aria-pressed',String(n===i))});heading.textContent=steps[i].title;copy.textContent=steps[i].description;art.innerHTML=tabs[i].querySelector('.climate-process-icon').innerHTML;if(!reduced){art.style.animation='none';void art.offsetWidth;art.style.animation=''}};
+ const stop=()=>{if(timer!==null){clearInterval(timer);timer=null}};
+ const start=()=>{stop();if(!paused&&!document.hidden&&!reduced)timer=setInterval(()=>render((current+1)%tabs.length),4200)};
+ tabs.forEach((tab,i)=>tab.addEventListener('click',()=>{render(i);start()}));
+ pause.addEventListener('click',()=>{paused=!paused;pause.setAttribute('aria-pressed',String(paused));pause.textContent=paused?'Hervat animatie':'Pauzeer animatie';start()});
+ if(reduced){pause.hidden=true;root.querySelector('.climate-process-hint').textContent='Kies een icoon om een stap te bekijken'}
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();else start()});
+ start();
+})();
