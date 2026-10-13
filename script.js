@@ -23,3 +23,13 @@ if(menu&&links){
   if (service) service.value = 'Airco-installatie';
   if (message && !message.value.trim()) message.value = 'Ik heb interesse in een airco van ' + brand + '.';
 })();
+
+(() => {
+ const slides=[...document.querySelectorAll('.hero-slide')];
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(slides.length>1&&!reduced){let i=0;setInterval(()=>{slides[i].classList.remove('is-active');i=(i+1)%slides.length;slides[i].classList.add('is-active')},6000)}
+ const numbers=[...document.querySelectorAll('.stat-number[data-count]')];
+ if(reduced||!('IntersectionObserver' in window))return;
+ const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;observer.unobserve(entry.target);const el=entry.target,target=Number(el.dataset.count),suffix=el.dataset.suffix||'',start=performance.now();const tick=now=>{const p=Math.min(1,(now-start)/1350);el.textContent=Math.round(target*(1-Math.pow(1-p,3)))+suffix;if(p<1)requestAnimationFrame(tick)};el.textContent='0'+suffix;requestAnimationFrame(tick)})},{threshold:.35});
+ numbers.forEach(el=>observer.observe(el));
+})();
