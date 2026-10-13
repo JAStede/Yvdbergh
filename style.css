@@ -102,3 +102,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .cookie-preferences label{display:flex;align-items:center;gap:6px}
 .cookie-footer-link{background:none;border:0;color:#e8f2fc;font:inherit;text-decoration:underline;cursor:pointer;padding:0 0 0 8px}
 @media(max-width:760px){.cookie-inner{display:block;padding:18px 20px}.cookie-actions{min-width:0;justify-content:stretch;margin-top:14px}.cookie-btn{flex:1 1 125px}.cookie-copy strong{font-size:17px}.cookie-copy p{font-size:13px}}
+
+/* Definitieve hero-correctie: geen afgesneden tekst, naadloze fotogradient. */
+.hero.hero-slideshow{position:relative;display:flex;align-items:center;overflow:hidden;isolation:isolate;background:#061e34!important;background-image:none!important;min-height:clamp(490px,44vw,620px)}
+.hero.hero-slideshow .hero-slides{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero.hero-slideshow .hero-slide{background-size:cover;background-position:center 45%;background-repeat:no-repeat;opacity:0}
+.hero.hero-slideshow .hero-slide.is-active{opacity:1}
+.hero.hero-slideshow::before{position:absolute;inset:0;z-index:1;content:"";pointer-events:none;background:linear-gradient(90deg,#061e34 0%,rgba(6,30,52,.97) 23%,rgba(6,30,52,.82) 43%,rgba(6,30,52,.32) 73%,rgba(6,30,52,.12) 100%)}
+.hero.hero-slideshow>.container.hero-content{position:relative;z-index:2;width:min(1160px,calc(100% - 40px));max-width:1160px;margin-left:auto;margin-right:auto;padding:76px 0;flex:0 1 auto}
+.hero.hero-slideshow h1{max-width:680px}
+.hero.hero-slideshow p{max-width:640px}
+@media(max-width:780px){.hero.hero-slideshow{min-height:530px}.hero.hero-slideshow .hero-slide{background-position:60% center}.hero.hero-slideshow::before{background:linear-gradient(90deg,rgba(6,30,52,.96),rgba(6,30,52,.83) 62%,rgba(6,30,52,.5))}.hero.hero-slideshow>.container.hero-content{padding:64px 0}}
+@media(max-width:480px){.hero.hero-slideshow>.container.hero-content{width:calc(100% - 36px)}.hero.hero-slideshow h1{font-size:clamp(34px,9vw,46px)}}
