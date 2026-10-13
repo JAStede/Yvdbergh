@@ -169,3 +169,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .google-review-cta .btn:disabled{opacity:.62;cursor:not-allowed;filter:none;transform:none;box-shadow:none}
 .google-review-cta-note{font-size:12px;color:#60758b}
 @media(max-width:700px){.google-review-cta{width:100%}.google-review-cta .btn{width:100%}}
+
+/* Interactief klimaatproces, geïnspireerd op het Asbest-stappenplan */
+.climate-process{margin:32px 0 30px;border:1px solid #dce8f2;border-radius:22px;overflow:hidden;background:#f4f9fd;box-shadow:0 16px 38px #0b315015}
+.climate-process-track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#fff;border-bottom:1px solid #dce8f2}
+.climate-process-tab{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-width:0;min-height:120px;padding:17px 9px;border:0;background:transparent;color:#16324b;font:700 14px/1.3 inherit;cursor:pointer;text-align:center}
+.climate-process-tab::after{content:"";position:absolute;bottom:0;left:13%;right:13%;height:3px;border-radius:3px;background:transparent;transition:background .25s}
+.climate-process-tab.is-current::after{background:#0c5797}
+.climate-process-icon{width:51px;height:51px;display:grid;place-items:center;border-radius:50%;background:#e7f3ff;color:#0c5797;transition:background .3s,color .3s,transform .3s}
+.climate-process-icon svg{width:27px;height:27px}
+.climate-process-tab.is-current .climate-process-icon{background:#0c5797;color:#fff;transform:scale(1.08)}
+.climate-process-tab:focus-visible,.climate-process-pause:focus-visible{outline:3px solid #439ddc;outline-offset:-3px}
+.climate-process-display{display:grid;grid-template-columns:160px minmax(0,1fr);gap:30px;align-items:center;padding:32px clamp(20px,4vw,45px);min-height:222px}
+.climate-process-art{width:142px;height:142px;display:grid;place-items:center;position:relative;border-radius:50%;background:linear-gradient(145deg,#d6edff,#eff8ff);isolation:isolate}
+.climate-process-art-icon{display:grid;place-items:center;width:72px;height:72px;color:#0c5797;animation:climate-process-pop .5s ease both}
+.climate-process-art-icon svg{width:70px;height:70px}
+.climate-process-orbit{position:absolute;inset:9px;border:2px dashed #82b9e2;border-radius:50%;animation:climate-process-spin 18s linear infinite}
+.climate-process-kicker{font-size:12px;letter-spacing:.13em;font-weight:800;color:#0c5797}
+.climate-process-heading{font-size:clamp(23px,3vw,31px);margin:7px 0 8px}
+.climate-process-copy{margin:0;max-width:60ch;color:#52647a}
+.climate-process-controls{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 23px 18px}
+.climate-process-pause{background:#fff;border:1px solid #b9d3e7;border-radius:999px;padding:8px 16px;color:#0c5797;font:700 13px inherit;cursor:pointer}
+.climate-process-hint{font-size:12px;color:#52647a}
+@keyframes climate-process-pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+@keyframes climate-process-spin{to{transform:rotate(360deg)}}
+@media(max-width:600px){.climate-process{border-radius:16px}.climate-process-tab{min-height:94px;padding:12px 4px;font-size:clamp(10px,2.5vw,12px);gap:7px;overflow-wrap:anywhere}.climate-process-icon{width:38px;height:38px}.climate-process-icon svg{width:22px;height:22px}.climate-process-display{grid-template-columns:1fr;justify-items:center;text-align:center;gap:16px;padding:25px 17px;min-height:250px}.climate-process-art{width:108px;height:108px}.climate-process-art-icon,.climate-process-art-icon svg{width:51px;height:51px}.climate-process-controls{justify-content:center;padding:8px 12px 18px}.climate-process-hint{display:none}}
+@media(prefers-reduced-motion:reduce){.climate-process-art-icon,.climate-process-orbit{animation:none!important}.climate-process-icon,.climate-process-tab::after{transition:none!important}}
