@@ -12,3 +12,14 @@ if(menu&&links){
   document.addEventListener('keydown',e=>{if(e.key==='Escape')setOpen(false)});
   document.addEventListener('click',e=>{if(!e.target.closest('.navwrap'))setOpen(false)});
 }
+
+/* Vul merk en dienst vooraf in als iemand via een merkkaart een offerte aanvraagt. */
+(() => {
+  const params = new URLSearchParams(window.location.search);
+  const brand = params.get('merk');
+  if (!brand || !['Mitsubishi','Daikin','Panasonic','Haier'].includes(brand)) return;
+  const service = document.getElementById('dienst');
+  const message = document.getElementById('bericht');
+  if (service) service.value = 'Airco-installatie';
+  if (message && !message.value.trim()) message.value = 'Ik ben geïnteresseerd in een airconditioner van ' + brand + '. Ik ontvang graag vrijblijvend advies en een offerte.';
+})();
