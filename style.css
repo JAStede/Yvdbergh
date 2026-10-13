@@ -48,3 +48,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .brand-brochure-premium .brand-quote-link{margin-top:8px}
 @media(max-width:760px){.brand-brochure-premium{grid-template-columns:1fr}.brand-brochure-premium .brand-brochure{padding:24px;min-height:0}}
 @media(prefers-reduced-motion:reduce){.brand-brochure-premium .brand-brochure{transition:none}}
+
+/* Verfijnde merkpresentatie: duidelijk logo, ruime kaarten, geen dubbele titel. */
+.brand-brochure-premium .brand-brochure{gap:14px;padding:30px 32px;min-height:310px;background:#fff;border-top:1px solid #dce6f1;border-right:1px solid #dce6f1;border-bottom:1px solid #dce6f1}
+.brand-brochure-premium .brand-brochure h3{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.brand-brochure-premium .brand-identity{display:flex;align-items:center;gap:14px;min-height:70px;font-family:Arial,Helvetica,sans-serif;line-height:1.05}
+.brand-brochure-premium .brand-identity svg{flex:none;display:block}
+.brand-brochure-premium .brand-mitsubishi{font-size:23px;letter-spacing:-.04em}
+.brand-brochure-premium .brand-daikin{font-size:42px;font-weight:900;font-style:italic}
+.brand-brochure-premium .brand-panasonic{font-size:37px;font-weight:800;letter-spacing:-.055em}
+.brand-brochure-premium .brand-haier{font-size:45px;font-weight:750;letter-spacing:-.07em}
+.brand-brochure-premium .brand-brochure .btn{margin-top:4px}
+.brand-brochure-premium .brand-quote-link{margin-top:auto}
+@media(max-width:600px){.brand-brochure-premium .brand-brochure{padding:24px 20px}.brand-brochure-premium .brand-mitsubishi{font-size:20px}.brand-brochure-premium .brand-daikin{font-size:36px}.brand-brochure-premium .brand-panasonic{font-size:32px}.brand-brochure-premium .brand-haier{font-size:39px}}
