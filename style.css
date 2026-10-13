@@ -76,3 +76,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(max-width:780px){.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-content{padding-top:65px;padding-bottom:65px}}
 @media(max-width:420px){.stats-grid{gap:10px}.stat-card{padding:20px 12px}.stat-label{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.hero-slide{transition:none}}
+
+/* Homepage: toon meer van de foto's in plaats van ze extreem bij te snijden. */
+.hero-slideshow{min-height:clamp(460px,48vw,590px);background:#071e35}
+.hero-slideshow::before{z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(4,25,46,.88) 0%,rgba(4,25,46,.66) 43%,rgba(4,25,46,.13) 100%)}
+.hero-slides{z-index:0;inset:0}
+.hero-slide{background-size:contain;background-repeat:no-repeat;background-position:right center;background-color:#071e35}
+.hero-content{z-index:2;width:100%}
+@media(max-width:780px){
+ .hero-slideshow{min-height:530px}
+ .hero-slide{background-size:cover;background-position:65% center}
+ .hero-slideshow::before{background:linear-gradient(90deg,rgba(4,25,46,.92),rgba(4,25,46,.7) 65%,rgba(4,25,46,.42))}
+}
