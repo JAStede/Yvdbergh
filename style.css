@@ -163,3 +163,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(max-width:900px){.process-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.process-steps::before{display:none}}
 @media(max-width:540px){.process-steps{grid-template-columns:1fr;gap:13px;margin-top:25px}.process-step{padding:19px}.process-step h3{margin-top:13px}.hero-airflow span{width:110%;right:-75%;opacity:.3}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-airflow{display:none}.service-card img,.service-card .textlink,.btn,.process-steps::before,.js-reveal-ready .reveal-on-scroll{animation:none!important;transition:none!important;transform:none!important;opacity:1!important}.process-steps::before{transform:scaleX(1)}}
+
+/* Reviewknop blijft zichtbaar maar niet klikbaar totdat echte Google-reviewlink bekend is. */
+.google-review-cta{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.google-review-cta .btn:disabled{opacity:.62;cursor:not-allowed;filter:none;transform:none;box-shadow:none}
+.google-review-cta-note{font-size:12px;color:#60758b}
+@media(max-width:700px){.google-review-cta{width:100%}.google-review-cta .btn{width:100%}}
