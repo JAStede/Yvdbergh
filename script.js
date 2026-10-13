@@ -33,3 +33,23 @@ if(menu&&links){
  const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;observer.unobserve(entry.target);const el=entry.target,target=Number(el.dataset.count),suffix=el.dataset.suffix||'',start=performance.now();const tick=now=>{const p=Math.min(1,(now-start)/1350);el.textContent=Math.round(target*(1-Math.pow(1-p,3)))+suffix;if(p<1)requestAnimationFrame(tick)};el.textContent='0'+suffix;requestAnimationFrame(tick)})},{threshold:.35});
  numbers.forEach(el=>observer.observe(el));
 })();
+
+/* Cookietoestemming: optionele statistieken standaard uit; geen tracking geladen. */
+(() => {
+ const KEY='yvdbergh_cookie_consent_v1';
+ const read=()=>{try{const x=JSON.parse(localStorage.getItem(KEY)||'null');return x&&typeof x.analytics==='boolean'?x:null}catch{return null}};
+ const save=analytics=>{try{localStorage.setItem(KEY,JSON.stringify({necessary:true,analytics,updated:new Date().toISOString()}))}catch{};window.dispatchEvent(new CustomEvent('cookie-consent-changed',{detail:{analytics}}));panel.hidden=true};
+ const panel=document.createElement('section');
+ panel.className='cookie-panel';panel.setAttribute('aria-label','Cookievoorkeuren');
+ panel.innerHTML='<div class="cookie-inner"><div class="cookie-copy"><strong>Uw privacy is belangrijk</strong><p>We gebruiken noodzakelijke opslag om uw cookiekeuze te onthouden. Met uw toestemming kunnen we later anonieme bezoekersstatistieken inschakelen. Op dit moment is er nog geen analysetool actief. <a href="privacyverklaring.html">Lees de privacyverklaring</a>.</p><div class="cookie-preferences" hidden><label><input type="checkbox" checked disabled> Noodzakelijk (altijd actief)</label><label><input type="checkbox" id="cookie-analytics"> Analytische cookies (optioneel)</label></div></div><div class="cookie-actions"><button type="button" class="cookie-btn cookie-accept">Alles accepteren</button><button type="button" class="cookie-btn cookie-reject">Weigeren</button><button type="button" class="cookie-btn cookie-settings">Voorkeuren aanpassen</button><button type="button" class="cookie-btn cookie-save" hidden>Keuze opslaan</button></div></div>';
+ document.body.appendChild(panel);
+ const preferences=panel.querySelector('.cookie-preferences'),analytics=panel.querySelector('#cookie-analytics'),saveButton=panel.querySelector('.cookie-save');
+ const show=()=>{const existing=read();analytics.checked=existing?existing.analytics:false;preferences.hidden=true;saveButton.hidden=true;panel.querySelector('.cookie-settings').hidden=false;panel.hidden=false};
+ panel.querySelector('.cookie-accept').addEventListener('click',()=>save(true));
+ panel.querySelector('.cookie-reject').addEventListener('click',()=>save(false));
+ panel.querySelector('.cookie-settings').addEventListener('click',()=>{preferences.hidden=false;saveButton.hidden=false;panel.querySelector('.cookie-settings').hidden=true});
+ saveButton.addEventListener('click',()=>save(analytics.checked));
+ const bottom=document.querySelector('.footerbottom');
+ if(bottom){const button=document.createElement('button');button.type='button';button.className='cookie-footer-link';button.textContent='Cookievoorkeuren';button.addEventListener('click',show);bottom.appendChild(button)}
+ panel.hidden=!!read();
+})();
