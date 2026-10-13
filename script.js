@@ -53,3 +53,15 @@ if(menu&&links){
  if(bottom){const button=document.createElement('button');button.type='button';button.className='cookie-footer-link';button.textContent='Cookievoorkeuren';button.addEventListener('click',show);bottom.appendChild(button)}
  panel.hidden=!!read();
 })();
+
+/* Scroll reveal: alleen waar ondersteund, zonder content te verbergen bij reduced motion. */
+(() => {
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(reduced||!('IntersectionObserver' in window))return;
+ const targets=[...document.querySelectorAll('main .section .container > h2,main .section .container > .grid,main .section .container > .split,main .section .container > .process-steps,main .section .container > .google-reviews-grid,main .section .container > .google-reviews-bottom')];
+ if(!targets.length)return;
+ targets.forEach(el=>el.classList.add('reveal-on-scroll'));
+ document.documentElement.classList.add('js-reveal-ready');
+ const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add('is-visible');observer.unobserve(entry.target)})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+ targets.forEach(el=>observer.observe(el));
+})();
