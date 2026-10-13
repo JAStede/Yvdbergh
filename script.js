@@ -21,5 +21,5 @@ if(menu&&links){
   const service = document.getElementById('dienst');
   const message = document.getElementById('bericht');
   if (service) service.value = 'Airco-installatie';
-  if (message && !message.value.trim()) message.value = 'Ik ben geïnteresseerd in een airconditioner van ' + brand + '. Ik ontvang graag vrijblijvend advies en een offerte.';
+  if (message && !message.value.trim()) message.value = 'Ik heb interesse in een airco van ' + brand + '.';
 })();
